@@ -62,17 +62,22 @@ $(function(){
 			console.log("len:"+checkDivs.length)
 			var valueIds="";
             for (var i = 0; i < checkDivs.length; i++) {
+            	// eq(i) 获取checkDivs 集合，数组中的每个对象
                 var saleAttrValueDiv = checkDivs.eq(i);
                 if(i>0){
                     valueIds= valueIds+"|";
 				}
+				// 118|120
+				/*.attr("value") 获取value 的属性值！*/
                 valueIds=valueIds+saleAttrValueDiv.attr("value");
 
             }
             console.log("valueIds:"+valueIds);
             var valuesSku = $("#valuesSku").attr("value");
             console.log("valuesSku:"+valuesSku);
+            // 将json 字符串转换为对象
             var valuesSkuJson=JSON.parse(valuesSku);
+            // 33= valuesSkuJson[118|120]
             var skuId= valuesSkuJson[valueIds];
 			console.log("skuId:"+skuId);
 			var skuIdSelf=$("#skuId").val();

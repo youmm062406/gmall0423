@@ -7,10 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class GmallUserManageApplicationTests {
+public class GmallUserManageApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	public void contextLoads() {
+	}
 
 }

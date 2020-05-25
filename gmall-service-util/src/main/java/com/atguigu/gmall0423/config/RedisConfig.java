@@ -4,11 +4,21 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+/*
+    <beans>
+        <bean id="redisUtil" class="com.atguigu.gmall0423.config.RedisUtil">
+            <property name="host",value="192.168.25.220">
+            <property name="port" value="6379">
+            <property name="database" value="0">
+        </bean>
+    </beans>
+ */
+
+@Configuration // 相当于.xml文件
 public class RedisConfig {
 
-    //读取配置文件中的redis的ip地址  ，如果未取到，则默认为disabled
-    @Value("${spring.redis.host:disabled}")
+    // disable表示如果未从配置文件中获取host，则默认值 为disable
+    @Value("${spring.redis.host:disable}")
     private String host;
 
     @Value("${spring.redis.port:0}")
@@ -17,14 +27,19 @@ public class RedisConfig {
     @Value("${spring.redis.database:0}")
     private int database;
 
-    @Bean   //相当于在xml中创建了一个<bean>标签
+    // 将获取的数据传入到initJedisPool方法中
+    @Bean // 相当于在 xml 中创建了一个<bean> 标签
     public RedisUtil getRedisUtil(){
-        if(host.equals("disabled")){
-            return null;
+        if ("disable".equals(host)){
+            return  null;
         }
-        RedisUtil redisUtil=new RedisUtil();
+        RedisUtil redisUtil = new RedisUtil();
+        // 调用initJedisPool方法将值传入
         redisUtil.initJedisPool(host,port,database);
+
         return redisUtil;
     }
+
+
 
 }

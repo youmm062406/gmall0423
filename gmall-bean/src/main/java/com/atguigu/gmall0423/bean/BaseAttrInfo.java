@@ -10,46 +10,14 @@ import java.util.List;
 public class BaseAttrInfo implements Serializable {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //获取主键自增
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 获取主键自增！
     private String id;
     @Column
     private String attrName;
     @Column
     private String catalog3Id;
 
-
-    @Transient
+    // baseAttrValue 的集合
+    @Transient // 表示当前字段不是表中的字段，是业务需要使用的！
     private List<BaseAttrValue> attrValueList;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getAttrName() {
-        return attrName;
-    }
-
-    public void setAttrName(String attrName) {
-        this.attrName = attrName;
-    }
-
-    public String getCatalog3Id() {
-        return catalog3Id;
-    }
-
-    public void setCatalog3Id(String catalog3Id) {
-        this.catalog3Id = catalog3Id;
-    }
-
-    public List<BaseAttrValue> getAttrValueList() {
-        return attrValueList;
-    }
-
-    public void setAttrValueList(List<BaseAttrValue> attrValueList) {
-        this.attrValueList = attrValueList;
-    }
 }

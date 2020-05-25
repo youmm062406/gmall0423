@@ -11,6 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>gmall-common-util</artifactId>
+    <!--添加依赖-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,6 +47,7 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <!--dubbo-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>

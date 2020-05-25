@@ -12,7 +12,7 @@
 
     <artifactId>gmall-bean</artifactId>
 
-    <!-- 添加通用mapper ，lombok  -->
+    <!--添加通用名mapper，lombok-->
     <dependencies>
         <dependency>
             <groupId>tk.mybatis</groupId>

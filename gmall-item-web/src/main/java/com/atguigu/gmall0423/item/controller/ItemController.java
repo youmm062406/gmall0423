@@ -2,9 +2,12 @@ package com.atguigu.gmall0423.item.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
+import com.atguigu.gmall0423.bean.SkuImage;
 import com.atguigu.gmall0423.bean.SkuInfo;
 import com.atguigu.gmall0423.bean.SkuSaleAttrValue;
 import com.atguigu.gmall0423.bean.SpuSaleAttr;
+import com.atguigu.gmall0423.config.LoginRequire;
+import com.atguigu.gmall0423.service.ListService;
 import com.atguigu.gmall0423.service.ManageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,15 +21,20 @@ import java.util.List;
 public class ItemController {
     @Reference
     private ManageService manageService;
+    @Reference
+    private ListService listService;
+    // localhost:8084/33.html
+    // 控制器
     @RequestMapping("{skuId}.html")
+    // @LoginRequire // 用户在访问商品详情的时候，必须登录！
     public String item(@PathVariable String skuId, HttpServletRequest request){
         // 根据skuId 获取数据
         SkuInfo skuInfo = manageService.getSkuInfo(skuId);
         // 显示图片列表！
         // 根据skuId skuImage 中
-//        List<SkuImage> skuImageList = manageService.getSkuImageBySkuId(skuId);
-//        // 将图片集合保存到作用域中
-//        request.setAttribute("skuImageList",skuImageList);
+        //        List<SkuImage> skuImageList = manageService.getSkuImageBySkuId(skuId);
+        //        // 将图片集合保存到作用域中
+        //        request.setAttribute("skuImageList",skuImageList);
 
         // 查询销售属性，销售属性值集合 spuId，skuId
         List<SpuSaleAttr> spuSaleAttrList = manageService.getSpuSaleAttrListCheckBySku(skuInfo);
@@ -79,6 +87,7 @@ public class ItemController {
         request.setAttribute("spuSaleAttrList",spuSaleAttrList);
         // 保存到作用域
         request.setAttribute("skuInfo",skuInfo);
+        listService.incrHotScore(skuId);
         return "item";
     }
 }

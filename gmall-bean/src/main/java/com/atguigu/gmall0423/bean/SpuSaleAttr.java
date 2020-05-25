@@ -1,12 +1,15 @@
 package com.atguigu.gmall0423.bean;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.List;
 
-public class SpuSaleAttr  implements Serializable {
+@Data
+public class SpuSaleAttr implements Serializable {
 
     @Id
     @Column
@@ -21,47 +24,8 @@ public class SpuSaleAttr  implements Serializable {
     @Column
     String saleAttrName;
 
-
+    // 销售属性值集合
     @Transient
     List<SpuSaleAttrValue> spuSaleAttrValueList;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getSpuId() {
-        return spuId;
-    }
-
-    public void setSpuId(String spuId) {
-        this.spuId = spuId;
-    }
-
-    public String getSaleAttrId() {
-        return saleAttrId;
-    }
-
-    public void setSaleAttrId(String saleAttrId) {
-        this.saleAttrId = saleAttrId;
-    }
-
-    public String getSaleAttrName() {
-        return saleAttrName;
-    }
-
-    public void setSaleAttrName(String saleAttrName) {
-        this.saleAttrName = saleAttrName;
-    }
-
-    public List<SpuSaleAttrValue> getSpuSaleAttrValueList() {
-        return spuSaleAttrValueList;
-    }
-
-    public void setSpuSaleAttrValueList(List<SpuSaleAttrValue> spuSaleAttrValueList) {
-        this.spuSaleAttrValueList = spuSaleAttrValueList;
-    }
 }

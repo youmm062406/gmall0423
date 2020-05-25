@@ -44,7 +44,7 @@
         <version>1.5.21.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <!--只定义，并不是实际依赖-->
+    <!--只定义并不是实际依赖-->
     <dependencyManagement>
         <dependencies>
             <dependency>

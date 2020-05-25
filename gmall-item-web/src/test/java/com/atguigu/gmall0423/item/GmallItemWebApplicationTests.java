@@ -1,13 +1,17 @@
 package com.atguigu.gmall0423.item;
 
+import javafx.util.converter.LongStringConverter;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class GmallItemWebApplicationTests {
+public class GmallItemWebApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
     }
 
 }

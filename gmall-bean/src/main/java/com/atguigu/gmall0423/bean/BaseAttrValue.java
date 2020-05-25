@@ -4,7 +4,9 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
+
 @Data
 public class BaseAttrValue implements Serializable {
     @Id
@@ -15,27 +17,9 @@ public class BaseAttrValue implements Serializable {
     @Column
     private String attrId;
 
-    public String getId() {
-        return id;
-    }
+    // 声明一个变量
+    @Transient
+    private String urlParam;
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
-    public String getValueName() {
-        return valueName;
-    }
-
-    public void setValueName(String valueName) {
-        this.valueName = valueName;
-    }
-
-    public String getAttrId() {
-        return attrId;
-    }
-
-    public void setAttrId(String attrId) {
-        this.attrId = attrId;
-    }
 }

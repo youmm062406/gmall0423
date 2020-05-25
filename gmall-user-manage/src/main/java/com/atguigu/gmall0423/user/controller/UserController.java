@@ -10,12 +10,13 @@ import java.util.List;
 
 @RestController
 public class UserController {
+
     @Autowired
-    UserService userService;
-
-
+    private UserService userService;
     @RequestMapping("findAll")
     public List<UserInfo> findAll(){
-        return  userService.findAll();
+        return userService.findAll();
     }
+
 }
+
