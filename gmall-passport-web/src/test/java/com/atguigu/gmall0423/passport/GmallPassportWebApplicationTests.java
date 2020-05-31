@@ -23,14 +23,14 @@ public class GmallPassportWebApplicationTests {
 		HashMap<String , Object> map = new HashMap<>();
 		map.put("userId",1001);
 		map.put("nickName","admin");
-		String salt = "192.168.67.123";
+		String salt = "192.168.25.220";
 		String token = JwtUtil.encode(key, map, salt);
 
 		System.out.println("token:"+token);
-		// token=eyJhbGciOiJIUzI1NiJ9.eyJuaWNrTmFtZSI6ImFkbWluIiwidXNlcklkIjoxMDAxfQ.CZr6TCs7v3AOl1GxMCMgvhQIpOrz-CJlYv16cRq_a3M
+		// token=eyJhbGciOiJIUzI1NiJ9.eyJuaWNrTmFtZSI6ImFkbWluIiwidXNlcklkIjoxMDAxfQ.u5iNOJRMkJpzgl-zmwps86KmAGrTlY1dIzRFRWtgc5w
 
 		// 解密token
-		Map<String, Object> maps = JwtUtil.decode(token, key, "192.168.67.223");
+		Map<String, Object> maps = JwtUtil.decode(token, key, "192.168.25.212");
 		System.out.println(maps);
 
 	}
