@@ -4,6 +4,10 @@ public class test {
 
     private  String age;
 
+    public test(){
 
-
+    }
+    public  test(String age){
+        age = this.age;
+    }
 }
