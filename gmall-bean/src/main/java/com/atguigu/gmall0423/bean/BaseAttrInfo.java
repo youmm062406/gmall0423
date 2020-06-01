@@ -20,4 +20,7 @@ public class BaseAttrInfo implements Serializable {
     // baseAttrValue 的集合
     @Transient // 表示当前字段不是表中的字段，是业务需要使用的！
     private List<BaseAttrValue> attrValueList;
+
+
+
 }
